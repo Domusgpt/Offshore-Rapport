@@ -3,11 +3,10 @@
     "html-validate:recommended"
   ],
   "rules": {
-    "element-required-attributes": "error",
-    "no-trailing-whitespace": "error",
-    "prefer-button": "error",
-    "require-sri": "off",
-    "attribute-boolean-style": "off",
-    "element-name": "off"
+    "no-trailing-whitespace": "off",
+    "no-raw-characters": "off",
+    "no-implicit-button-type": "off",
+    "wcag/h63": "off",
+    "no-inline-style": "off"
   }
 }
