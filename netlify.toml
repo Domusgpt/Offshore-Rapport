@@ -18,6 +18,11 @@
   to = "/category.html"
   status = 200
 
+[[redirects]]
+  from = "/dashboard"
+  to = "/dashboard.html"
+  status = 200
+
 [build.processing]
   skip_processing = false
 
@@ -34,3 +39,7 @@
 
 [build.processing.images]
   compress = true
+
+# Optional: If using serverless functions in the future
+# [functions]
+#   directory = "functions"
