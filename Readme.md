@@ -104,4 +104,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgments
 
 - Designed and developed with assistance from Claude AI
-- All images used are placeholder images from unsplash.com
+- All images used are placeholder images from unsplash.com# Offshore-Rapport
