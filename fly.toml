@@ -1,0 +1,18 @@
+app = "offshore-rapport"
+primary_region = "ewr" # This should be adjusted based on your preferred region
+
+[build]
+  # Using a basic Dockerfile for a static website - you'll need to create this
+  dockerfile = "Dockerfile"
+
+[http_service]
+  internal_port = 80
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
+
+[[statics]]
+  guest_path = "/usr/share/nginx/html"
+  url_prefix = "/"
