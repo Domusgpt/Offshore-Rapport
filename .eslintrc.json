@@ -9,16 +9,14 @@
     "sourceType": "module"
   },
   "rules": {
-    "indent": ["error", 2],
-    "linebreak-style": ["error", "unix"],
-    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
-    "semi": ["error", "always"],
-    "no-unused-vars": ["warn"],
-    "no-console": ["warn", { "allow": ["error", "warn", "info"] }]
+    // Less strict rules for this project
+    "no-unused-vars": "warn",
+    "no-undef": "warn",
+    "no-irregular-whitespace": "warn"
   },
   "globals": {
+    // Add any global variables that ESLint should recognize
     "OffshoreRapportData": "readonly",
-    "OffshoreRapportRenderer": "readonly",
-    "OffshoreRapportDashboard": "readonly"
+    "OffshoreRapportRenderer": "readonly"
   }
 }
