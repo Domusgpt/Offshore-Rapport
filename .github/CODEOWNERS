@@ -1,0 +1,16 @@
+# These owners will be the default owners for everything in
+# the repo. Unless a later match takes precedence,
+# they will be requested for review when someone opens a pull request.
+* @YOUR-GITHUB-USERNAME
+
+# JS files ownership
+/js/ @YOUR-GITHUB-USERNAME
+/js/dashboard/ @YOUR-GITHUB-USERNAME
+
+# HTML/CSS files ownership
+*.html @YOUR-GITHUB-USERNAME
+*.css @YOUR-GITHUB-USERNAME
+
+# Configuration files
+/.github/ @YOUR-GITHUB-USERNAME
+/netlify.toml @YOUR-GITHUB-USERNAME
