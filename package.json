@@ -1,0 +1,28 @@
+{
+  "name": "offshore-rapport",
+  "version": "1.0.0",
+  "description": "A professional digital magazine focusing on global marine economic activity including fisheries, aquaculture, offshore energy, marine technology, policy, and market analysis.",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npx eslint js/**/*.js",
+    "validate": "npx html-validate *.html"
+  },
+  "keywords": [
+    "marine",
+    "fisheries",
+    "aquaculture",
+    "offshore",
+    "magazine",
+    "digital",
+    "json"
+  ],
+  "author": "Offshore Rapport Team",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.40.0",
+    "html-validate": "^7.13.2",
+    "serve": "^14.2.0"
+  }
+}
