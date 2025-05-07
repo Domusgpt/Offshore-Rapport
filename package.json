@@ -7,7 +7,7 @@
     "start": "npx serve",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "npx eslint js/**/*.js",
-    "validate": "npx html-validate *.html"
+    "validate": "npx html-validate --config .htmlvalidate.json *.html"
   },
   "keywords": [
     "marine",
@@ -23,6 +23,8 @@
   "devDependencies": {
     "eslint": "^8.40.0",
     "html-validate": "^7.13.2",
-    "serve": "^14.2.0"
+    "serve": "^14.2.0",
+    "jsonlint": "^1.6.3",
+    "eslint-config-standard": "^17.0.0"
   }
 }
