@@ -1,0 +1,24 @@
+{
+  "id": "floating-wind-farms-analysis",
+  "title": "Floating Wind Farms: The Next Frontier in Renewable Energy Generation",
+  "category": "offshore-energy",
+  "categoryLabel": "Offshore Energy",
+  "lead": "Deep-water wind projects promise vast untapped potential...",
+  "byline": "By Dr. Helena Shaw, Energy Analyst",
+  "publishDate": "2024-07-26",
+  "updateDate": "2024-07-27",
+  "readTime": 12,
+  "heroImage": {
+    "src": "https://source.unsplash.com/random/1400x800/?offshore,wind,turbine,ocean",
+    "alt": "Conceptual image of a large floating offshore wind farm array",
+    "caption": "Artist's rendition..."
+  },
+  "contentHtml": "<p>The global push...</p><h2>Technological Hurdles...</h2>...",
+  "tags": ["Floating Wind", "Offshore Energy", "Renewable Technology"],
+  "author": {
+    "name": "Dr. Helena Shaw",
+    "bio": "Senior Energy Analyst...",
+    "image": "https://source.unsplash.com/random/100x100/?woman,professional,portrait"
+  },
+  "relatedArticleIds": ["green-hydrogen-offshore", "next-gen-turbines"]
+}

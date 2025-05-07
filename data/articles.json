@@ -1,0 +1,21 @@
+[
+  {
+    "id": "north-atlantic-cod-quotas-rebuilding-stocks-20210226",
+    "title": "North Atlantic Cod: How Quotas and Collaboration Are Rebuilding Stocks",
+    "sourceName": "Marine Policy Journal",
+    "sourceUrl": "https://www.sciencedirect.com/science/article/abs/pii/S0308597X21000385",
+    "publicationDate": "2021-02-26",
+    "retrievalDate": "2025-05-06",
+    "category": "fisheries",
+    "summary": "This comprehensive analysis examines the recovery trajectory of North Atlantic cod stocks following decades of overfishing. The research highlights how international quota agreements, gear restrictions, and cooperative management between nations sharing these fisheries have contributed to measurable stock rebounds in several regions. Despite these positive trends, the study cautions that climate change impacts, including warming waters and shifting prey distributions, present ongoing challenges to sustained recovery efforts.",
+    "keywords": ["cod", "fisheries management", "quotas", "stock recovery", "North Atlantic", "international cooperation", "sustainable fishing"],
+    "keyTakeaways": [
+      "Properly enforced quota systems have shown demonstrable success in rebuilding cod populations in specific North Atlantic regions.",
+      "International collaboration, particularly between Norway, Iceland, and Canada, has been crucial to addressing transboundary stock management.",
+      "Gear restrictions that reduce bycatch of juvenile cod have significantly improved recruitment rates in recovering populations."
+    ],
+    "mainImageUrl": "https://source.unsplash.com/random/600x400/?cod,fishing,ice",
+    "imageAltText": "Commercial fishing vessel hauling cod catch in the North Atlantic",
+    "articleType": "Research Analysis"
+  }
+]

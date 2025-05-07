@@ -1,0 +1,12 @@
+OffshoreRapport/
+├── README.md
+├── netlify.toml
+├── style.css  <-- NEW Consolidated and Re-themed CSS
+├── index.html
+├── category.html
+├── article.html
+├── js/
+│   ├── main.js
+│   ├── content-filter.js
+│   └── article-transitions.js (if used, or combined into main.js)
+└── (Potentially a new html/ directory for original templates if you want to keep them separate)

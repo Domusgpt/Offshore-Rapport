@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offshore Rapport | Content Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Dashboard-specific styling */
+    .dashboard-container {
+      padding: var(--space-6) 0;
+    }
+    
+    .dashboard-header {
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-4);
+      border-bottom: 1px solid var(--color-gray-300);
+    }
+    
+    .dashboard-actions {
+      display: flex;
+      gap: var(--space-3);
+      margin-bottom: var(--space-6);
+    }
+    
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      gap: var(--space-6);
+    }
+    
+    .dashboard-sidebar {
+      background-color: var(--color-gray-100);
+      padding: var(--space-4);
+      border-radius: var(--radius-md);
+    }
+    
+    .dashboard-nav {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .dashboard-nav li {
+      margin-bottom: var(--space-3);
+    }
+    
+    .dashboard-nav a {
+      display: block;
+      padding: var(--space-3);
+      border-radius: var(--radius-md);
+      color: var(--color-gray-700);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    
+    .dashboard-nav a:hover,
+    .dashboard-nav a.active {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+    }
+    
+    .dashboard-main {
+      background-color: var(--color-white);
+      padding: var(--space-6);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .dashboard-title {
+      margin-bottom: var(--space-4);
+    }
+    
+    .article-form {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+    
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+    
+    .form-group label {
+      font-weight: var(--font-weight-bold);
+      color: var(--color-gray-700);
+    }
+    
+    .form-control {
+      padding: var(--space-3);
+      border: 1px solid var(--color-gray-300);
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: var(--font-size-base);
+    }
+    
+    textarea.form-control {
+      min-height: 120px;
+    }
+    
+    .keywords-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-top: var(--space-2);
+    }
+    
+    .keyword-pill {
+      background-color: var(--color-gray-200);
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    
+    .remove-keyword {
+      cursor: pointer;
+      color: var(--color-gray-600);
+      font-size: var(--font-size-sm);
+    }
+    
+    .takeaways-container {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+    
+    .takeaway-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    
+    .takeaway-item input {
+      flex-grow: 1;
+    }
+    
+    .remove-takeaway {
+      cursor: pointer;
+      color: var(--color-gray-600);
+    }
+    
+    .add-button {
+      background-color: var(--color-gray-200);
+      border: none;
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--font-size-sm);
+      margin-top: var(--space-2);
+    }
+    
+    .form-footer {
+      margin-top: var(--space-6);
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--color-gray-200);
+      display: flex;
+      justify-content: flex-end;
+      gap: var(--space-3);
+    }
+    
+    .article-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .article-table th,
+    .article-table td {
+      padding: var(--space-3);
+      text-align: left;
+      border-bottom: 1px solid var(--color-gray-200);
+    }
+    
+    .article-table th {
+      background-color: var(--color-gray-100);
+      font-weight: var(--font-weight-bold);
+    }
+    
+    .article-table tr:hover {
+      background-color: var(--color-gray-100);
+    }
+    
+    .action-buttons {
+      display: flex;
+      gap: var(--space-2);
+    }
+    
+    .action-button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      color: var(--color-primary);
+    }
+    
+    .action-button.delete {
+      color: var(--color-error);
+    }
+    
+    .json-preview {
+      background-color: var(--color-gray-900);
+      color: var(--color-gray-100);
+      padding: var(--space-4);
+      border-radius: var(--radius-md);
+      font-family: monospace;
+      overflow-x: auto;
+      white-space: pre;
+    }
+    
+    @media (max-width: 768px) {
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .dashboard-actions {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body class="dashboard-page">
+  <header class="site-header">
+    <div class="container">
+      <div class="header-top">
+        <a href="index.html" class="logo">Offshore Rapport</a>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
+            <li><a href="index.html" class="nav-link">View Site</a></li>
+          </ul>
+        </nav>
+        <button class="menu-toggle" aria-label="Toggle Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="dashboard-container">
+    <div class="container">
+      <div class="dashboard-header">
+        <h1>Content Dashboard</h1>
+        <p>Manage articles, categories, and site content</p>
+      </div>
+      
+      <div class="dashboard-actions">
+        <button id="new-article-btn" class="btn primary">New Article</button>
+        <button id="import-json-btn" class="btn secondary">Import JSON</button>
+        <button id="export-all-btn" class="btn secondary">Export All Articles</button>
+      </div>
+      
+      <div class="dashboard-grid">
+        <aside class="dashboard-sidebar">
+          <h3>Navigation</h3>
+          <ul class="dashboard-nav">
+            <li><a href="#articles" class="active" data-section="articles">Articles</a></li>
+            <li><a href="#categories" data-section="categories">Categories</a></li>
+            <li><a href="#settings" data-section="settings">Settings</a></li>
+          </ul>
+        </aside>
+        
+        <div class="dashboard-main">
+          <!-- Articles Section -->
+          <section id="articles-section" class="dashboard-section">
+            <h2 class="dashboard-title">Articles</h2>
+            
+            <div class="article-list">
+              <table class="article-table">
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="articles-table-body">
+                  <!-- Will be populated dynamically -->
+                  <tr>
+                    <td colspan="4">Loading articles...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+          
+          <!-- Article Form Section (hidden by default) -->
+          <section id="article-form-section" class="dashboard-section" style="display: none;">
+            <h2 class="dashboard-title">Add/Edit Article</h2>
+            
+            <form id="article-form" class="article-form">
+              <div class="form-group">
+                <label for="article-title">Title</label>
+                <input type="text" id="article-title" class="form-control" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="article-category">Category</label>
+                <select id="article-category" class="form-control" required>
+                  <option value="">Select a category</option>
+                  <option value="fisheries">Fisheries & Aquaculture</option>
+                  <option value="marinetech">Marine Technology</option>
+                  <option value="markets">Seafood Markets</option>
+                  <option value="offshore-energy">Offshore Energy</option>
+                  <option value="policy">Policy & Reports</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="article-source-name">Source Name</label>
+                <input type="text" id="article-source-name" class="form-control" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="article-source-url">Source URL</label>
+                <input type="url" id="article-source-url" class="form-control" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="article-date">Publication Date</label>
+                <input type="date" id="article-date" class="form-control" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="article-summary">Summary</label>
+                <textarea id="article-summary" class="form-control" required></textarea>
+              </div>
+              
+              <div class="form-group">
+                <label for="article-type">Article Type</label>
+                <select id="article-type" class="form-control" required>
+                  <option value="">Select article type</option>
+                  <option value="News">News</option>
+                  <option value="Analysis">Analysis</option>
+                  <option value="Report">Report</option>
+                  <option value="Research Analysis">Research Analysis</option>
+                  <option value="Press Release">Press Release</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="article-keywords">Keywords</label>
+                <div class="keywords-input-group">
+                  <input type="text" id="article-keywords" class="form-control">
+                  <button type="button" id="add-keyword" class="add-button">Add Keyword</button>
+                </div>
+                <div id="keywords-container" class="keywords-container">
+                  <!-- Keywords will be added here -->
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label>Key Takeaways</label>
+                <div id="takeaways-container" class="takeaways-container">
+                  <div class="takeaway-item">
+                    <input type="text" class="form-control takeaway-input" placeholder="Enter a key takeaway">
+                    <span class="remove-takeaway">✕</span>
+                  </div>
+                </div>
+                <button type="button" id="add-takeaway" class="add-button">Add Takeaway</button>
+              </div>
+              
+              <div class="form-group">
+                <label for="article-image">Image URL</label>
+                <input type="url" id="article-image" class="form-control" placeholder="https://example.com/image.jpg">
+              </div>
+              
+              <div class="form-group">
+                <label for="article-image-alt">Image Alt Text</label>
+                <input type="text" id="article-image-alt" class="form-control">
+              </div>
+              
+              <div class="form-group">
+                <label>JSON Preview</label>
+                <pre id="json-preview" class="json-preview">
+{
+  "id": "",
+  "title": "",
+  "sourceName": "",
+  "sourceUrl": "",
+  "publicationDate": "",
+  "retrievalDate": "",
+  "category": "",
+  "summary": "",
+  "keywords": [],
+  "keyTakeaways": [],
+  "mainImageUrl": null,
+  "imageAltText": null,
+  "articleType": ""
+}
+                </pre>
+              </div>
+              
+              <div class="form-footer">
+                <button type="button" id="cancel-form" class="btn secondary">Cancel</button>
+                <button type="submit" class="btn primary">Save Article</button>
+              </div>
+            </form>
+          </section>
+          
+          <!-- Categories Section (hidden by default) -->
+          <section id="categories-section" class="dashboard-section" style="display: none;">
+            <h2 class="dashboard-title">Categories</h2>
+            <p>Manage categories and their properties.</p>
+            
+            <table class="article-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Slug</th>
+                  <th>Color</th>
+                  <th>Article Count</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Fisheries & Aquaculture</td>
+                  <td>fisheries</td>
+                  <td><span style="display:inline-block; width:20px; height:20px; background-color:#2A9D8F;"></span> #2A9D8F</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td>Marine Technology</td>
+                  <td>marinetech</td>
+                  <td><span style="display:inline-block; width:20px; height:20px; background-color:#E9C46A;"></span> #E9C46A</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>Seafood Markets</td>
+                  <td>markets</td>
+                  <td><span style="display:inline-block; width:20px; height:20px; background-color:#F4A261;"></span> #F4A261</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>Offshore Energy</td>
+                  <td>offshore-energy</td>
+                  <td><span style="display:inline-block; width:20px; height:20px; background-color:#264653;"></span> #264653</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>Policy & Reports</td>
+                  <td>policy</td>
+                  <td><span style="display:inline-block; width:20px; height:20px; background-color:#6c757d;"></span> #6c757d</td>
+                  <td>0</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          
+          <!-- Settings Section (hidden by default) -->
+          <section id="settings-section" class="dashboard-section" style="display: none;">
+            <h2 class="dashboard-title">Settings</h2>
+            <p>Configure dashboard and site settings.</p>
+            
+            <form class="article-form">
+              <div class="form-group">
+                <label for="site-title">Site Title</label>
+                <input type="text" id="site-title" class="form-control" value="Offshore Rapport">
+              </div>
+              
+              <div class="form-group">
+                <label for="site-description">Site Description</label>
+                <textarea id="site-description" class="form-control">In-depth coverage of global marine economic activity including fisheries, aquaculture, offshore energy, marine technology, and seafood markets.</textarea>
+              </div>
+              
+              <div class="form-group">
+                <label for="articles-per-page">Articles Per Page</label>
+                <input type="number" id="articles-per-page" class="form-control" value="9">
+              </div>
+              
+              <div class="form-footer">
+                <button type="submit" class="btn primary">Save Settings</button>
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/data-loader.js"></script>
+  <script src="js/dashboard/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Title and Meta Description will be dynamically set based on category -->
+  <title>Fisheries & Aquaculture | Offshore Rapport</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Latest news, analysis, and trends in global fisheries and aquaculture, including sustainable practices, technological advancements, and market dynamics.">
+</head>
+<!-- Body class will be dynamically set, e.g., "category-page fisheries" -->
+<body class="category-page fisheries">
+  <header class="site-header">
+    <div class="container">
+      <div class="header-top">
+        <a href="index.html" class="logo">Offshore Rapport</a>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="category.html?category=fisheries" class="nav-link fisheries active">Fisheries & Aquaculture</a></li>
+            <li><a href="category.html?category=marinetech" class="nav-link marinetech">Marine Technology</a></li>
+            <li><a href="category.html?category=markets" class="nav-link markets">Seafood Markets</a></li>
+            <li><a href="category.html?category=offshore-energy" class="nav-link offshore-energy">Offshore Energy</a></li>
+            <li><a href="category.html?category=policy" class="nav-link policy">Policy & Reports</a></li>
+            <li><a href="index.html#podcast" class="nav-link">Podcast</a></li>
+          </ul>
+        </nav>
+        <button class="menu-toggle" aria-label="Toggle Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Category Hero Section - Content dynamically set -->
+  <section class="category-hero">
+    <div class="pattern-background pattern-fisheries"></div> <!-- pattern-fisheries class for specific bg if desired -->
+    <div class="container">
+      <div class="category-hero-content">
+        <h1 class="category-title">Fisheries & Aquaculture</h1>
+        <p class="category-description">Comprehensive coverage of wild-catch fisheries management, innovative aquaculture techniques, stock assessments, and the socio-economic impacts on coastal communities.</p>
+        
+        <div class="category-filters">
+          <span class="filter-label">Filter by Sub-Topic:</span>
+          <div class="filter-buttons">
+            <!-- Filters would be dynamic based on available tags for the category -->
+            <button class="filter-toggle active" data-filter="all">All</button>
+            <button class="filter-toggle" data-filter="sustainability">Sustainability</button>
+            <button class="filter-toggle" data-filter="technology">Technology</button>
+            <button class="filter-toggle" data-filter="stock-assessment">Stock Assessment</button>
+            <button class="filter-toggle" data-filter="imta">IMTA</button>
+          </div>
+        </div>
+        
+        <!-- New Tag Filtering System -->
+        <div class="tag-filter-container">
+          <button class="tag-filter active" data-tag="all">All Tags</button>
+          <button class="tag-filter" data-tag="sustainable">Sustainable</button>
+          <button class="tag-filter" data-tag="innovation">Innovation</button>
+          <button class="tag-filter" data-tag="aquaculture">Aquaculture</button>
+          <button class="tag-filter" data-tag="research">Research</button>
+          <button class="tag-filter" data-tag="policy">Policy</button>
+          <button class="tag-filter" data-tag="technology">Technology</button>
+          <button class="tag-filter" data-tag="conservation">Conservation</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Article for Category - Dynamically populated -->
+  <section class="category-featured">
+    <div class="container">
+      <div class="featured-grid">
+        <div class="featured-content">
+          <span class="category-pill fisheries">Fisheries & Aquaculture</span>
+          <h2 class="featured-title">Recirculating Aquaculture Systems (RAS): A Deep Dive into Water Efficiency and Challenges</h2>
+          <p class="lead">RAS technology promises a sustainable future for land-based fish farming, but high operational costs and technical complexities remain significant barriers to widespread adoption.</p>
+          <div class="article-meta">
+            <span class="byline">By Dr. Sofia Alvarez</span>
+            <span class="metadata">Published Yesterday • 15 Min Read</span>
+          </div>
+          <a href="article.html?id=ras-technology-deep-dive" class="btn primary">Read Full Report</a>
+        </div>
+        <div class="featured-image">
+          <img src="https://source.unsplash.com/random/1200x800/?aquaculture,tanks,water" alt="Recirculating Aquaculture System tanks">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Article Grid Section - Populated from JSON based on category and filters -->
+  <section class="category-articles">
+    <div class="container">
+      <h2 class="section-title">Latest in Fisheries & Aquaculture</h2>
+      
+      <div class="article-grid">
+        <!-- Article Card 1 (Data from JSON) -->
+        <article class="article-card sustainability animate-on-scroll">
+          <a href="article.html?id=sustainable-cod-fishery" class="article-link">
+            <div class="card-image">
+              <img src="https://source.unsplash.com/random/600x400/?cod,fishing,ice" alt="Cod fishing operation">
+            </div>
+            <div class="card-content">
+              <h3>North Atlantic Cod Stocks: A Case Study in Sustainable Fishery Management</h3>
+              <p class="excerpt">How quota adjustments, gear restrictions, and international cooperation are helping rebuild once-depleted cod populations.</p>
+              <div class="article-meta">
+                <span class="metadata">10 Min Read</span>
+              </div>
+              <div class="article-tags">
+                <span class="tag">Sustainable</span>
+                <span class="tag">Policy</span>
+                <span class="tag">Conservation</span>
+              </div>
+            </div>
+          </a>
+        </article>
+        
+        <!-- Article Card 2 (Data from JSON) -->
+        <article class="article-card technology animate-on-scroll">
+          <a href="article.html?id=seaweed-cultivation-tech" class="article-link">
+            <div class="card-image">
+              <img src="https://source.unsplash.com/random/600x400/?seaweed,farm,ocean" alt="Offshore seaweed cultivation">
+            </div>
+            <div class="card-content">
+              <h3>Offshore Seaweed Cultivation: New Technologies for a Growing Bio-Economy</h3>
+              <p class="excerpt">Exploring automated harvesting systems and robust mooring designs for large-scale seaweed farming in exposed marine environments.</p>
+              <div class="article-meta">
+                <span class="metadata">12 Min Read</span>
+              </div>
+              <div class="article-tags">
+                <span class="tag">Technology</span>
+                <span class="tag">Innovation</span>
+                <span class="tag">Aquaculture</span>
+              </div>
+            </div>
+          </a>
+        </article>
+        
+        <!-- Article Card 3 (Data from JSON) -->
+        <article class="article-card stock-assessment animate-on-scroll">
+          <a href="article.html?id=acoustic-stock-assessment" class="article-link">
+            <div class="card-image">
+              <img src="https://source.unsplash.com/random/600x400/?sonar,research,vessel" alt="Research vessel with acoustic equipment">
+            </div>
+            <div class="card-content">
+              <h3>Advanced Acoustic Methods for Non-Invasive Fish Stock Assessment</h3>
+              <p class="excerpt">Utilizing multi-frequency echosounders and AI for more accurate and timely data on fish biomass and distribution.</p>
+              <div class="article-meta">
+                <span class="metadata">9 Min Read • Technical</span>
+              </div>
+              <div class="article-tags">
+                <span class="tag">Research</span>
+                <span class="tag">Technology</span>
+                <span class="tag">Innovation</span>
+              </div>
+            </div>
+          </a>
+        </article>
+        
+        <!-- Add more article cards as needed, populated from JSON -->
+      </div>
+      
+      <div class="load-more-container">
+        <button class="btn secondary load-more">Load More Articles</button>
+        <!-- This button would trigger JS to fetch more articles from JSON -->
+      </div>
+    </div>
+  </section>
+
+  <section class="trending-topics">
+    <div class="pattern-background pattern-fisheries"></div>
+    <div class="container">
+      <h2 class="section-title">Trending in this Sector</h2>
+      <div class="topics-grid">
+        <!-- Topics would be dynamically generated based on popular tags in the category -->
+        <a href="#" class="topic-card">
+          <span class="topic-name">RAS Technology</span>
+          <span class="topic-count">15 Articles</span>
+        </a>
+        <a href="#" class="topic-card">
+          <span class="topic-name">MPA Impact</span>
+          <span class="topic-count">12 Articles</span>
+        </a>
+        <a href="#" class="topic-card">
+          <span class="topic-name">Climate Change Adaptation</span>
+          <span class="topic-count">10 Articles</span>
+        </a>
+        <a href="#" class="topic-card">
+          <span class="topic-name">Feed Innovation</span>
+          <span class="topic-count">8 Articles</span>
+        </a>
+         <a href="#" class="topic-card">
+          <span class="topic-name">Traceability</span>
+          <span class="topic-count">7 Articles</span>
+        </a>
+         <a href="#" class="topic-card">
+          <span class="topic-name">Small-Scale Fisheries</span>
+          <span class="topic-count">6 Articles</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter category-newsletter fisheries"> <!-- Class for category-specific styling -->
+    <div class="container">
+      <div class="newsletter-content">
+        <h2>Fisheries & Aquaculture Updates</h2>
+        <p>Receive targeted briefings and analysis on fisheries and aquaculture directly to your inbox.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your email" required>
+          <button type="submit" class="btn secondary">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-branding">
+          <a href="index.html" class="footer-logo">Offshore Rapport</a>
+          <p class="footer-tagline">In-depth coverage of marine economies.</p>
+        </div>
+        <div class="footer-nav">
+          <div class="footer-nav-column">
+            <h4>Explore</h4>
+            <ul>
+              <li><a href="category.html?category=fisheries">Fisheries & Aquaculture</a></li>
+              <li><a href="category.html?category=marinetech">Marine Technology</a></li>
+              <li><a href="category.html?category=markets">Seafood Markets</a></li>
+              <li><a href="category.html?category=offshore-energy">Offshore Energy</a></li>
+              <li><a href="category.html?category=policy">Policy & Reports</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-column">
+            <h4>About Us</h4>
+            <ul>
+              <li><a href="#">Our Mission</a></li>
+              <li><a href="#">Contributors</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Advertise With Us</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-column">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="index.html#podcast">Podcast</a></li>
+              <li><a href="#">Webinars</a></li>
+              <li><a href="#">Data & Reports Store</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <script>document.write(new Date().getFullYear());</script> Offshore Rapport. All rights reserved.</p>
+        <div class="social-links">
+          <a href="#" aria-label="LinkedIn">LI</a>
+          <a href="#" aria-label="Twitter">TW</a>
+          <a href="#" aria-label="RSS Feed">RSS</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data-loader.js"></script> <!-- For loading JSON data -->
+  <script src="js/article-renderer.js"></script> <!-- For rendering articles from JSON -->
+  <script src="js/main.js"></script>
+  <script src="js/content-filter.js"></script> <!-- For client-side filtering logic -->
+  <script src="tag-filter.js"></script> <!-- For tag-based filtering -->
+</body>
+</html>
